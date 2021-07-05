@@ -8,9 +8,10 @@
 - `internal`仅限局域网内电脑访问，用于内网电脑交换文件
 
 ```
-mkdir /share/external
-mkdir /share/internal
-docker run --name pip-source -p 8083:80 -v /home/share_dir:/share -it pypa/bandersnatch bash
+mkdir -p /home/share_dir/external
+mkdir -p /home/share_dir/internal
+sudo chmod 777 /home/share_dir -R
+docker run --name samba -p 445:445 -v /home/share_dir:/share gdyshi/samba
 ```
 
 # 修改配置
