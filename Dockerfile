@@ -1,5 +1,6 @@
 FROM ubuntu:18.04
 # RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list && apt-get update
+RUN apt-get update
 RUN	apt-get install -y nano samba
 
 COPY ./smb.conf /etc/samba/smb.conf
